@@ -1,0 +1,64 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../assets/logo/final.png" id="icon" alt="User Icon" />
+      <h4>Register Securly !</h4>
+    </div>
+    <!-- Login Form -->
+    <form>
+      <div id="login-column">
+        <div id="login-box" class="col-md-12">
+          <form [formGroup]="registerForm" (ngSubmit)="mySubmit()" class="formset">
+            <input type="text" class="form-control shadow-none login-input login-input" formControlName="first_name"
+              [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First Name">
+            <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+            </div>
+            <input type="text" class="form-control shadow-none login-input" formControlName="middle_name"
+              [ngClass]="{'is-invalid':submitted && f.middle_name.errors}" placeholder="Middle Name">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+            </div>
+            <input type="text" class="form-control shadow-none login-input" formControlName="last_name"
+              [ngClass]="{'is-invalid':submitted && f.last_name.errors}" placeholder="Last_name">
+            <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+            </div>
+            <input type="email" class="form-control shadow-none login-input" formControlName="Email"
+              [ngClass]="{'is-invalid':submitted && f.Email.errors}" placeholder="email">
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+              <div *ngIf="f.Email.errors.email">Not a proper email address</div>
+            </div>
+            <select formControlName="cityname" class="form-control shadow-none login-input" [ngClass]="{'is-invalid':submitted && f.cityname.errors}" >
+              <option>--Select City--</option>
+              <option *ngFor="let ct of cityname">{{ct.cityname}}</option>
+            </select>
+            <div *ngIf="submitted && f.cityname.errors" class="invalid-feedback">
+            </div>
+            <input type="text" class="form-control shadow-none login-input" formControlName="contact"
+              [ngClass]="{'is-invalid':submitted && f.contact.errors}" placeholder="Contact">
+            <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+              <div *ngIf="f.contact.errors.minlength">Minimum 10 digit</div>
+              <div *ngIf="f.contact.errors.pattern">Only number is allow</div>
+              <div *ngIf="f.contact.errors.maxlength">Maximum 10 digit</div>
+            </div>
+            <input type="password" class="form-control shadow-none login-input" formControlName="Password"
+              [ngClass]="{'is-invalid':submitted && f.Password.errors}" placeholder="password">
+            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+              <div *ngIf="f.Password.errors.minlength">Minimum 8 digit</div>
+              <div *ngIf="f.Password.errors.maxlength">Maxmum 16 digit</div>
+            </div>
+            <input type="password" class="form-control shadow-none login-input" formControlName="confirmPassword"
+              [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}" placeholder="Confirm password">
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div><br>
+            <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary float-left btn-md-set">Submit
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button><br>
+          </form><br>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

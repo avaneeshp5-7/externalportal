@@ -1,0 +1,22 @@
+var server='http://localhost:3000' 
+export const URL={
+    postuser:server + '/login_url',
+    get_profile:server + '/profile_url',
+    update_profile:server + '/update_url',
+    user_register:server + '/user_register_url',
+    user_remove:server + '/user_remove_url',
+    search_key:server + '/search_key_url',
+    search_city:server + '/search_city_url',
+    search_jobs:server + '/search_jobs_url',
+    get_user_details:server + '/get_user_details_url',
+    update_skills_details:server+'/update_skills_details_url',
+    get_skills_details:server+'/get_skills_details_url',
+    update_profile_details:server+'/update_profile_details_url',
+    update_emplyement_details:server+'/update_emplyement_details_url',
+    update_resume_heading:server+'/update_resume_heading_url',
+    update_profile_summary:server+'/update_profile_summary_url',
+    update_education_details:server+'/update_education_details_url',
+    add_education_details:server+'/add_education_details_url',
+    get_education_details:server+'/get_education_details_url',
+    resume_upload:server+'/resume_upload_url',
+}

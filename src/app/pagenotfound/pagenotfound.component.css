@@ -1,0 +1,10 @@
+.btnSubmit
+{
+    border: none;
+    border-radius: 1.5rem;
+    width: 20%;
+    cursor: pointer;
+    background: tomato;
+    margin: auto;
+    color: #fff;
+}

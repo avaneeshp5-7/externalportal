@@ -1,0 +1,514 @@
+<h4 class="setHead"> Candidate informations
+	<fa-icon [icon]="faPowerOff" class="setClose float-right" (click)="closeModal()"></fa-icon>
+</h4>
+<div class="portfolio">
+	<div class="bio-info">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="bio-image">
+							<img src="../../../../../assets/av.jpg" alt="image" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div *ngFor="let userDetails of userDetails" class="bio-content">
+					<h1 class="nameHead">{{userDetails.first_name?userDetails.first_name:'N/A'}}
+						{{userDetails.middle_name}}
+						{{userDetails.last_name}}
+						<fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt"
+							(click)="openContent(content)"></fa-icon>
+					</h1>
+					<p class="desidSet">{{userDetails.designation}}</p>
+					<div class="row">
+						<div class="col-md-4">
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faMapMarker"></fa-icon>&nbsp;&nbsp; <span
+								class="citySet">{{userDetails.cityname}}, IN</span>
+							<br>
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faBriefcase"></fa-icon>&nbsp;&nbsp; <span
+								class="citySet">{{userDetails.totalexp}}.{{userDetails.totalmonth}} Year (s)</span>
+							<br>
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faWallet"></fa-icon>&nbsp;&nbsp; <span
+								class="citySet">{{userDetails.currency}}
+								{{userDetails.ctclac}}.{{userDetails.ctcthousand}} Lac/A</span>
+						</div>
+						<div class="col-md-6">
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faPhoneAlt"></fa-icon>&nbsp;&nbsp;<span
+								class="citySet">{{userDetails.contact}}</span><br>
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faEnvelope"></fa-icon>&nbsp;&nbsp;<span
+								class="citySet">{{userDetails.Email}}</span><br>
+							<fa-icon class="mt-0 ml-1 ng-fa-icon" [icon]="faTimesCircle" alt="Notice Period"></fa-icon>
+							&nbsp;&nbsp;<span class="citySet">{{userDetails.notice}} Day's</span>
+						</div>
+					</div>
+					<div class="progress mt-2 progressSet">
+						<div class="progress-bar progress-bar-striped" style="width:40%"></div>
+					</div>
+				</div>
+				<div class="row">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div *ngIf="editMode===false" class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="contents">
+				<h5>Key Skills
+					<fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt" (click)="openSkills(content)">
+					</fa-icon>
+				</h5><br>
+				<div *ngIf="skilsEditMode===false">
+					<div class="row setChip">
+						<div class="col-md-3 col-sm-6 chip" *ngFor="let sk of skillsList">
+							{{sk.skills}}
+						</div>
+					</div>
+				</div>
+				<div *ngIf="skilsEditMode">
+					<form [formGroup]="skillsFrom">
+						<div class="row">
+							<div class="col-md-12">
+								<ng-select placeholder="add skills" [addTag]="true" formControlName="skills"
+									[multiple]="true">
+								</ng-select>
+							</div>
+						</div> <br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-warning shadow-none btnSkill"
+									(click)="submitSkills()">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div><br>
+			<div class="contents">
+				<h5 style="color: black;">Employment Details</h5>
+				<div style="padding: 5px;">
+					<h6>{{userDetails[0].designation}}
+						<fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt" (click)="editEmpDetails()">
+						</fa-icon>
+					</h6>
+					<div *ngIf="editEmpDetail===false">
+						<p>{{userDetails[0].orgenozations}}</p>
+						<p>{{userDetails[0].months}} {{userDetails[0].year}} to
+							<span *ngIf="userDetails[0].tillworked">{{userDetails[0].tillworked}}</span>
+							<span *ngIf="userDetails[0].leavemonth">{{userDetails[0].leavemonth}}
+								{{userDetails[0].leaveyear}}</span>
+						</p>
+
+						<p>Available to join in {{userDetails[0].notice}} days</p>
+						<h6>Project Details</h6>
+						<p>{{userDetails[0].jobdescriptions}}</p>
+					</div>
+					<div *ngIf="editEmpDetail" style="padding: 5px;">
+						<form [formGroup]="EmployeeDetailsFrom">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Your Designations *</label>
+									<div class="form-group">
+										<input type="text" class="form-control shadow-none"
+											formControlName="designation" placeholder="Your Designations *">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<label>Your Orgenozations *</label>
+									<div class="form-group">
+										<input type="text" class="form-control shadow-none"
+											formControlName="orgenozations" placeholder="Your Orgenozations *">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"><label>Is this your current company?</label>
+									<div class="form-group">
+										<select formControlName=currentstatus class="form-control shadow-none">
+											<option value="yes"> Yes </option>
+											<option value="no"> No </option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3"><label>Year </label>
+									<div class="form-group ">
+										<ng-select [addTag]=true formControlName="year"> </ng-select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<label>Month</label>
+									<div class="form-group ">
+										<ng-select [addTag]=true formControlName="months"></ng-select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"><label>Employment Area *</label>
+									<div class="form-group">
+										<input type="text" class="form-control shadow-none" formControlName="emparea"
+											placeholder="Employment Area *">
+									</div>
+								</div>
+								<div *ngIf="tillPresent===false" class="col-md-6">
+									<label>Worked Till *</label>
+									<div class="form-group">
+										<input type="text" class="form-control shadow-none" formControlName="tillworked"
+											placeholder="Present">
+									</div>
+								</div>
+								<div class="col-md-3" *ngIf="tillPresent"><label>Last Year *</label>
+									<div class="form-group">
+										<ng-select [addTag]=true formControlName="leaveyear" placeholder="From">
+										</ng-select>
+									</div>
+								</div>
+								<div class="col-md-3" *ngIf="tillPresent"><label>Last Month *</label>
+									<div class="form-group">
+										<ng-select [addTag]=true formControlName="leavemonth" placeholder="To">
+										</ng-select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<label>Describe your Job Profile</label>
+									<div class="form-group">
+										<textarea formControlName="jobdescriptions" class="form-control shadow-none"
+											placeholder="Describe your Job Profile"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="button" value=Submit class="btnSubmitEmp shadow-none"
+										(click)="submitEmpDetails()">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<br>
+				<div *ngIf="skilsEditMode===false">
+					<div class="row setChip">
+
+					</div>
+				</div>
+				<div *ngIf="skilsEditMode">
+					<form [formGroup]="skillsFrom">
+						<div class="row">
+							<div class="col-md-12">
+								<ng-select placeholder="add skills" [addTag]="true" formControlName="skills"
+									[multiple]="true">
+								</ng-select>
+							</div>
+						</div> <br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-warning shadow-none btnSkill"
+									(click)="submitSkills()">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="contents">
+				<h5>Attach Resume</h5>
+				<div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>Resume is the most important document recruiters look for. Recruiters generally do not
+								look at profiles without resumes</p>
+						</div>
+						<div class="col-md-12 text-center">
+							<!-- <button class="btn btn-warning shadow-none btnSkillResume"> -->
+								<input type="file" (change)="fileSelect($event)" type="file" name="file">
+							<!-- </button> -->
+						</div>
+					</div>
+				</div>
+			</div><br>
+			<div class="contents">
+				<h5>Resume Headline
+					<fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt" (click)="editResumeHead()">
+					</fa-icon>
+				</h5>
+				<div *ngIf="editResHead===false">
+					<p>{{userDetails[0].resumeheadline}}</p>
+				</div>
+				<div *ngIf="editResHead">
+					<div class="row">
+						<div class="col-md-12">
+							<p>It is the first thing recruiters notice in your profile. Write concisely what makes you
+								unique and right person for the job you are looking for.</p>
+							<div class="form-group">
+								<form [formGroup]="resumeForm">
+									<textarea class="form-control shadow-none" formControlName="resumeheadline"
+										placeholder="Add your resume headline...">
+									</textarea>
+								</form>
+							</div>
+							<button class="btn btn-warning shadow-none btnSkill"
+								(click)="editResumeHeadSubmit()">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div><br>
+			<div class="contents">
+				<h5>Profile Summary
+					<fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt" (click)="editProfSummary()">
+					</fa-icon>
+				</h5>
+				<div *ngIf="editProfileSummary===false">
+					<p>{{userDetails[0].profilesummary}}</p>
+				</div>
+				<div *ngIf="editProfileSummary">
+					<div class="row">
+						<div class="col-md-12">
+							<p>It is the first thing recruiters notice in your profile. Write concisely what makes you
+								unique and right person for the job you are looking for.</p>
+							<form [formGroup]="profileSummaryForm">
+								<div class="form-group">
+									<textarea class="form-control shadow-none" formControlName="profilesummary"
+										placeholder="Add your profile summary..."></textarea>
+								</div>
+							</form>
+							<button class="btn btn-warning shadow-none btnSkill"
+								(click)="editProfSummarySubmit()">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="editMode" class="container register-form">
+	<div class="form">
+		<div class="note">
+			Basic Details
+		</div>
+		<form [formGroup]="userDetailsForm">
+			<div class="form-content">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" formControlName="first_name" class="form-control shadow-none"
+								placeholder="First Name *" />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="last_name"
+								placeholder="last_name">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="middle_name"
+								placeholder="middle_name">
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<ng-select formControlName="currency" [addTag]="true" placeholder="Currency">
+										</ng-select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<ng-select formControlName="ctclac" [addTag]="true" placeholder="CTC in lac">
+										</ng-select>
+									</div>
+								</div>
+								<div class="col-md-5">
+									<div class="form-group">
+										<ng-select formControlName="ctcthousand" [addTag]="true"
+											placeholder="CTC in thousend"></ng-select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="contact"
+								placeholder="Contact">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="dob"
+								placeholder="Date of birth *">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="notice"
+								placeholder="Notice period in day *">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<input type="text" class="form-control shadow-none" formControlName="Email"
+								placeholder="Email id">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<ng-select type="text" formControlName="country" [addTag]="true" placeholder="Country *">
+							</ng-select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<ng-select type="text" formControlName="cityname" [addTag]="true" placeholder="City *">
+							</ng-select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<ng-select formControlName="totalexp" [addTag]="true" placeholder="Experience Year  *">
+							</ng-select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<ng-select formControlName="totalmonth" [addTag]="true" placeholder="Experience Month *">
+							</ng-select>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="btn btn-warning shadow-none btnSubmit"
+					(click)="updateProfile()">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="contents" style="margin: 14px;">
+				<h5 style="color: black;background: -webkit-linear-gradient(left, #637d9c, #8435ac);color: whitesmoke;padding: 5px;">Educations Details</h5>
+				<div style="padding: 5px;">
+					<h5 >Education Details
+						<fa-icon *ngIf="addbool"  class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPlusCircle"
+							(click)="educationAddEdit('add')">
+						</fa-icon>
+					</h5>
+				</div>
+				<br>
+				<div *ngIf="eduEditMode===false">
+					<div *ngFor="let Details of EduDetails">
+						<h6>{{Details.education}} - {{Details.course}} <fa-icon class="mt-0 ml-1 ng-fa-icon faEdit" [icon]="faPencilAlt"
+							(click)="educationAddEdit('edit',Details)">
+						</fa-icon>&nbsp;</h6>
+						<p>{{Details.university}}</p>
+						<p>{{Details.passingoutyear}} ( {{Details.coursetype}})</p>
+					</div>
+				</div>
+				<div *ngIf="eduEditMode===true">
+                <span (click)="cancelEdu()" style="color: rgb(245, 33, 33);cursor: pointer; font-size: 18px; font-weight: bold;margin-left: 10px;">Cancel</span><br>
+					<form [formGroup]="educationForm" class="setEduFrom">
+						<h4 class="setEduDet">User Details</h4>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Education</label>
+									<ng-select class="shadow-none" [addTag]="true" formControlName="education"
+										placeholder="Education"></ng-select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Course</label>
+									<ng-select class="shadow-none" [addTag]="true" formControlName="course"
+										placeholder="Course"></ng-select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Specialization</label>
+									<ng-select class="shadow-none" [addTag]="true" formControlName="specialization"
+										placeholder="Specialization"></ng-select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>University/Institute</label>
+									<input type="text" class="form-control shadow-none" formControlName="university"
+										name="" id="" placeholder="University/Institute">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Course Type</label><br>
+									<select class="form-control shadow-none" formControlName="coursetype">
+										<option value="">--Select-- Time</option>
+										<option value="fulltime">Full Time</option>
+										<option value="parttime">Part Time</option>
+										<option value="correspondence">Correspondence/Distance learning</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Passing Out Year</label>
+									<ng-select [addTag]="true" formControlName="passingoutyear"
+										placeholder="Passing Out Year"></ng-select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Grading System</label>
+									<ng-select [addTag]="true" formControlName="gradingsystem"
+										placeholder="Grading System"></ng-select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Marks</label>
+									<ng-select [addTag]="true" formControlName="marks" placeholder="Marks"></ng-select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btnSkill btn btn-warning shadow-none"
+									(click)="educationSubmit()">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div *ngIf="skilsEditMode">
+					<form [formGroup]="skillsFrom">
+						<div class="row">
+							<div class="col-md-12">
+								<ng-select placeholder="add skills" [addTag]="true" formControlName="skills"
+									[multiple]="true">
+								</ng-select>
+							</div>
+						</div> <br>
+						<div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-warning shadow-none btnSkill"
+									(click)="submitSkills()">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

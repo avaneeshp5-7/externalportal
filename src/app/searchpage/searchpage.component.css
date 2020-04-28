@@ -1,0 +1,123 @@
+#vantagens {
+    /* background-color: #F9F9F9; */
+  }
+  
+  
+  
+  .lib-row {
+      width: 100%;
+  }
+  
+  .icon-round {
+      width: 80px;
+      line-height: 70px;
+      text-align: center;
+      padding-top: 8px;
+      border-radius: 100%;
+      display: inline-block;
+      position: absolute;
+      right: -38px;
+      top: 20px;
+      background-color: #2CAFFD;
+  }
+  
+  .ozi-icon i {
+      font-size: 28px;
+      padding: 0px;
+      font-weight: bold;
+  }
+  
+  .card-text {
+      position: initial;   
+  }
+  
+  .lib-panel {
+    margin-bottom: 20Px;
+  }
+  .lib-panel img {
+    width: 100%;
+    background-color: transparent;
+  }
+  
+  .lib-panel .row,
+  .lib-panel .col-md-6 {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+  }
+  
+  
+  .lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+  }
+  
+  .lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .setCompany{
+    font-size: 12px;
+    color: rgb(170, 169, 169);
+  }
+.faBriefSet{
+  color: rgb(110, 112, 112);
+  font-size: 15px;
+}
+.faHomeSet{
+  color: rgb(110, 112, 112);
+  font-size: 15px;
+  margin-left: 40px;
+}
+.applySet{
+  float: right;
+    font-size: 10px;
+    font-weight: bold;
+    color: whitesmoke;
+    border-radius: 0px;
+    margin: 10px;
+    background-color: tomato;
+    border:2px solid tomato;
+    border-radius: 1.5rem;
+}
+.setSkill{
+  font-size: 13px;
+  color: rgb(110, 112, 112);
+  font-family: sans-serif;
+}
+.setYears{
+  font-size: 14px;
+  color: rgb(110, 112, 112);
+  /* font-weight: bold; */
+}
+  .lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #2CAFFD;
+    margin: 7px 0 7px 0;
+  }
+  
+  .lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: auto;
+    display: block;
+    font-size: 13px;
+  }
+  .lib-panel .lib-row.lib-desc a{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 20px;
+  }
+  
+  .row-margin-bottom {
+    margin-bottom: 20px;
+  }
+  
+  .setShadow {
+    /* -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10); */
+    box-shadow:0 0px 7px 0 rgba(10, 10, 10, 0.3);
+  }
+  

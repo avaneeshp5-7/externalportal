@@ -1,0 +1,29 @@
+.contact-form{
+    margin-top: 2%;
+}
+.contact-form .form-control{
+   border: 1px solid silver;
+   /* border-radius: 0%; */
+} 
+ng-select ng-select-container:focus{
+    border: 1px solid silver; 
+    border: 1px solid rgb(5, 119, 250);
+    background-color: lightcoral;
+}
+/* .contact-form .form-control:focus{ */
+    /* border: 1px solid rgb(5, 119, 250);
+    border-radius: 0%; */
+ /* }  */
+.setBtnSearch{
+    border-radius: 1.5rem;
+    background-color: tomato;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    /* box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28); */
+}
+.JobTitle{
+    color: cadetblue;font-family: fantasy;
+   
+}

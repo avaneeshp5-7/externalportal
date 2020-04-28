@@ -1,0 +1,168 @@
+ .setClose{
+     color: rgb(250, 142, 2);
+     font-size: 22px;
+     cursor: pointer;
+ }
+ .setHead{
+     background-color: cadetblue;
+     padding: 10px;
+     color: white;
+     /* text-align: center; */
+ }
+ .setEduDet{
+  background: -webkit-linear-gradient(left, #637d9c, #8435ac);
+  color: #fff;
+  font-weight: bold;
+  padding: 8px;
+  box-shadow: 0px 0px 4px 0px #b0b3b7;
+ }
+ .setEduFrom{
+  box-shadow: 0px 0px 4px 0px #b0b3b7;
+  padding: 15px;
+ }
+ .portfolio {
+    padding:14px;
+    text-align:center;
+  }
+  .nameHead{
+      font-size:  1.5rem;
+      word-wrap: break-word;
+    font-weight: 600;
+  }
+  .desidSet{
+    color: #f3f2f2;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .citySet{
+    font-size: 15px;
+  }
+  .faEdit{
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .heading {
+    background:#fff;
+    /* padding:1%; */
+    /* text-align:left; */
+    box-shadow:0px 0px 4px 0px #545b62;
+  }
+  .contents{
+    box-shadow:0px 0px 4px 0px #545b62;
+    padding: 10px;
+  }
+  .heading img {
+    width:10%;
+  }
+ .contents .chip{
+  background: rgba(1, 26, 255, 0.212);
+  padding: 11px 20px;
+  text-align: center;
+  margin-left: 22px;
+  margin-top: 12px;
+  color: rgb(0, 0, 0);
+  width: 280px;
+  }
+  .bio-info {
+    padding:1%;
+    background:rgb(35, 70, 96);
+    box-shadow:0px 0px 4px 0px #b0b3b7;
+    margin-top: -10px;
+    color:whitesmoke
+  }
+  .setClosed{
+    margin-top: -10px;
+    margin-right: -7px;
+    color: rgb(250, 142, 2);
+  }
+  .setChip{
+    margin-top: -35px;
+  }
+  .name {
+    font-family:'Charmonman', cursive;
+    font-weight:600;
+  }
+  
+  .bio-image {
+    text-align:center;
+  }
+  
+  .bio-image img {
+    width: 117px;
+    height: 112px;
+    border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    -ms-border-radius:6px;
+    -o-border-radius:6px;
+    margin-top: 7px;
+}
+.progressSet{
+  height: 10px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+}
+  
+  .bio-content {
+    text-align:left;
+    margin-left: 70px;
+  }
+
+  /* Edit From CSS */
+
+  .note
+{
+    background: -webkit-linear-gradient(left, #637d9c, #8435ac);
+    color: #fff;
+    font-weight: bold;
+    padding: 8px;
+    box-shadow:0px 0px 4px 0px #b0b3b7;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+    box-shadow:0px 0px 4px 0px #b0b3b7;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: tomato;
+    color: #fff;
+    float: right;
+}
+.btnSubmitEmp{
+  border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: tomato;
+    color: #fff;
+    float: right;
+    text-align: center;
+}
+.btnSkill{
+  border-radius: 1.5rem;
+  background: tomato;
+  border: 2px solid tomato;
+  color: #fff;
+  float: right;
+  margin-top: -2px;
+}
+.btnSkillResume{
+  border-radius: 1.5rem;
+  background: tomato;
+  border: 2px solid tomato;
+  color: #fff;
+  margin-top: -2px;
+}

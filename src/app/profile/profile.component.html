@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5 col-md-4 user-details">
+            <div class="user-image">
+                <img src="../../assets/av.jpg" width="100" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+            </div>
+            <div class="user-info-block">
+                <div  class="user-heading">
+                    <h4>{{userdetails.first_name}} {{userdetails.middle_name}} {{userdetails.last_name}}</h4>
+                    <span class="help-block">{{userdetails.cityname}}, IN</span><br>
+                    <span>{{userdetails.Email}}, +91-{{userdetails.contact}}</span>
+                </div>
+                <div class="user-body">
+                    <div class="tab-content">
+                        <div id="information" class="tab-pane active ml-3">
+                            <h6>Profile Completeness</h6>
+                        </div>
+                        <div class="progress w-100 ml-3">
+                          <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+                        </div>
+                        <button class="btn btn-info setSetting shadow-none" (click)="openProfile()">
+                            <fa-icon [icon]="faUser"></fa-icon> Me
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
